@@ -3,7 +3,7 @@ from rest_framework.exceptions import ValidationError
 
 class PriceValidator:
     """
-    Валидатор для проверки имени товара (не пустое)
+    Валидатор для проверки цены товара (должна быть положительным числом)
     """
     def __init__(self, field):
         self.field = field
