@@ -24,7 +24,10 @@ class ProductListAPIView(generics.ListAPIView):
     Контроллер для получения списка продуктов
     """
 
-    serializer_class = ProductSerializer
-    queryset = Product.objects.all()
-    # renderer_classes = [TemplateHTMLRenderer]
-    # template_name = 'product_list.html'
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'product_list.html'
+
+    def get(self, request):
+        queryset = Product.objects.all()
+        return Response({'products': queryset})
+
